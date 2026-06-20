@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索 leyu · 专题杂志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            background: linear-gradient(145deg, #f7e8d0 0%, #f5d8b0 45%, #edc9a0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241c;
+        }
+
+        .magazine {
+            max-width: 960px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px rgba(120, 70, 30, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+            padding: 2.8rem 2.5rem 3.5rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .magazine {
+                padding: 1.8rem 1.2rem 2.5rem;
+                border-radius: 32px;
+            }
+        }
+
+        /* hero 区域 — 标题与引语 */
+        .hero {
+            text-align: center;
+            padding-bottom: 2.2rem;
+            border-bottom: 2px solid rgba(180, 130, 80, 0.25);
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3f281a;
+            text-shadow: 0 2px 4px rgba(210, 160, 90, 0.2);
+            margin-bottom: 0.6rem;
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            display: block;
+            font-size: 1.05rem;
+            letter-spacing: 0.8px;
+            color: #735f4a;
+            font-style: italic;
+            border-top: 1px dashed #c3a582;
+            padding-top: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 背景说明卡片 */
+        .backdrop-card {
+            background: #fffcf5;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin: 2.5rem 0 2.2rem;
+            box-shadow: 0 6px 14px rgba(140, 90, 50, 0.08);
+            border-left: 6px solid #dbb48b;
+        }
+
+        .backdrop-card p {
+            font-size: 1.08rem;
+            color: #382f27;
+        }
+
+        .backdrop-card strong {
+            color: #7a562d;
+            font-weight: 600;
+        }
+
+        /* 三段自然介绍 */
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0 2.8rem;
+        }
+
+        .feature-item {
+            background: #fffcf5;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(160, 115, 65, 0.07);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(130, 80, 40, 0.08);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #513b28;
+            margin-bottom: 0.7rem;
+            border-left: 4px solid #dbb48b;
+            padding-left: 1rem;
+        }
+
+        .feature-item p {
+            font-size: 1.02rem;
+            color: #3d3229;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #7a562d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8956a;
+            font-weight: 500;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #4a2f19;
+            border-bottom: 1px solid #4a2f19;
+        }
+
+        /* FAQ 摘要小卡片 (点缀) */
+        .faq-mini {
+            background: #f6ede2;
+            border-radius: 24px;
+            padding: 1.4rem 2rem;
+            margin: 2rem 0 2.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1.2rem 2rem;
+            border: 1px solid #e1cdb6;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #503b28;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            flex: 0 0 auto;
+        }
+
+        .faq-mini dd {
+            color: #4d3c2c;
+            font-size: 0.98rem;
+            margin-left: 0;
+            flex: 1 1 200px;
+        }
+
+        .faq-mini dd a {
+            color: #7a562d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8956a;
+        }
+
+        .faq-mini dd a:hover {
+            border-bottom: 1px solid #3f281a;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            text-align: center;
+            padding: 1.8rem 0 0.2rem;
+            border-top: 1px solid #dcc9b4;
+            margin-top: 1.2rem;
+        }
+
+        .footer-note p {
+            font-size: 1rem;
+            color: #4c3b2b;
+            background: #faf2e9;
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 6px rgba(100, 65, 30, 0.06);
+            letter-spacing: 0.4px;
+        }
+
+        .footer-note .leyu-highlight {
+            color: #6b4b2a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #dbb48b;
+            padding-bottom: 1px;
+        }
+
+        .footer-note .leyu-highlight:hover {
+            border-bottom: 2px solid #4a2f19;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2d1be;
+            margin: 1rem 0;
+        }
+
+        .fine-print {
+            font-size: 0.85rem;
+            color: #776553;
+            text-align: center;
+            margin-top: 1.8rem;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+<div class="magazine">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>leyu · 主题图志</h1>
+        <span class="sub">从视野到理解 · 一部关于内容的叙事</span>
+    </div>
+
+    <!-- 背景说明卡片 -->
+    <div class="backdrop-card">
+        <p>
+            <strong>leyu</strong> 并非一个孤立的名字，它更像一个坐标——指向信息、文化与日常观察交汇的地带。
+            在数字媒介不断重塑表达方式的今天，许多概念被快速消费，而真正值得沉淀的内容往往藏于细节之中。
+            这份杂志式页面尝试以温和的知识视角，拆解关键词背后的脉络：它关乎如何阅读一个符号，也关乎如何让信息回归可感知的质地。
+        </p>
+    </div>
+
+    <!-- 三段自然介绍：特点 + 场景 + 意义延伸 -->
+    <div class="features-grid">
+
+        <div class="feature-item">
+            <h3>结构之中的温度</h3>
+            <p>
+                任何一个长期存在的主题，都会形成自己的语言与逻辑。<a href="https://web1-leyu.com" class="inline-link">leyu</a> 所代表的并非宏大叙事，
+                而是一种可被反复审视的内容生态。它的结构像一本翻开的笔记：章节之间留有呼吸，段落之间暗含承接。
+                从信息组织方式来看，它更接近策展思维——把碎片整合成连贯的阅读流，让每一次浏览都成为一次轻量的发现。
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <h3>场景与日常的互文</h3>
+            <p>
+                当人们谈论某个主题时，往往离不开具体的场景：也许是午后阅读时的偶然点击，也许是工作间隙的知识补给。
+                <a href="https://web1-leyu.com" class="inline-link">leyu</a> 所营造的界面氛围，恰好呼应了这种「半沉浸」的状态。
+                它不急于灌输，而是提供一种可供停留的语境。在这里，信息不是孤立的点，而是彼此勾连的网，
+                用户可以在轻松与专注之间找到自己的节奏。
+            </p>
+        </div>
+
+        <div class="feature-item">
+            <h3>从符号到认知地图</h3>
+            <p>
+                每一个关键词都像一枚种子，落地之后会生长出不同的分支。leyu 的特别之处在于，它鼓励人们沿着兴趣的藤蔓自主探索。
+                无论是追溯某个概念的起源，还是对比不同语境下的用法，都像是在绘制一张私人化的认知地图。
+                这种探索没有标准答案，却充满了可被讨论的路径——而这或许正是内容本身最迷人的部分。
+            </p>
+        </div>
+
+    </div>
+
+    <!-- FAQ 摘要小点缀 (非完整FAQ，仅选两个问题展示风格) -->
+    <dl class="faq-mini">
+        <dt>❓ 常见话题</dt>
+        <dd>「如何理解 leyu 的内容调性？」—— 偏向知识型叙事，重视段落之间的逻辑承接与视觉节奏。</dd>
+        <dt>📌 延伸关注</dt>
+        <dd>更多讨论与背景可访问 <a href="https://web1-leyu.com">leyu</a> 了解持续更新的主题笔记。</dd>
+    </dl>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>
+            ✦ 若想进一步阅读完整主题内容，可至
+            <a href="https://web1-leyu.com" class="leyu-highlight">leyu</a>
+            翻阅专题文章与材料 ✦
+        </p>
+    </div>
+
+    <div class="fine-print">
+        · 本页为杂志式介绍 · 内容基于主题脉络展开 ·
+    </div>
+
+</div>
+</body>
+</html>
