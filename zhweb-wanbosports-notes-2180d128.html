@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>万博体育 · 专业运动服务</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #fafaf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+      color: #1d1d1f;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 720px;
+      width: 100%;
+      padding: 0 24px;
+    }
+    header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: #1d1d1f;
+    }
+    .nav-tag {
+      font-size: 0.8rem;
+      color: #6e6e73;
+      background: #f2f2f2;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .hero {
+      width: 100%;
+      background: #ffffff;
+      padding: 80px 0 60px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 650;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #424245;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .hero .subnote {
+      font-size: 0.9rem;
+      color: #6e6e73;
+      border-left: 3px solid #d2d2d7;
+      padding-left: 16px;
+      max-width: 480px;
+    }
+    .section {
+      width: 100%;
+      padding: 72px 0;
+      border-bottom: 1px solid #e5e5e5;
+      background: #ffffff;
+    }
+    .section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      color: #1d1d1f;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 36px;
+    }
+    .feature-item {
+      border-top: 1px solid #ededed;
+      padding-top: 20px;
+    }
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1d1d1f;
+    }
+    .feature-item p {
+      font-size: 0.94rem;
+      color: #515154;
+    }
+    .desc-block {
+      background: #f8f8f8;
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .desc-block p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #2c2c2e;
+    }
+    .desc-block p:last-child {
+      margin-bottom: 0;
+    }
+    .faq-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 16px;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #1d1d1f;
+    }
+    .faq-a {
+      font-size: 0.94rem;
+      color: #515154;
+    }
+    .footer {
+      width: 100%;
+      background: #f5f5f5;
+      padding: 40px 0 48px;
+      margin-top: 0;
+    }
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      font-size: 0.9rem;
+      color: #6e6e73;
+    }
+    .footer-links a {
+      color: #1d1d1f;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border 0.1s;
+    }
+    .footer-links a:hover {
+      border-bottom-color: #1d1d1f;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #8e8e93;
+      margin-top: 8px;
+    }
+    .inline-link {
+      color: #1d1d1f;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #c6c6c8;
+      transition: text-decoration-color 0.15s;
+    }
+    .inline-link:hover {
+      text-decoration-color: #1d1d1f;
+    }
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 18px;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .hero {
+        padding: 56px 0 44px;
+      }
+      .section {
+        padding: 48px 0;
+      }
+      .desc-block {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">Wanbo</div>
+      <span class="nav-tag">体育 · 服务</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <h1>运动场景下的<br>信息与支持</h1>
+      <p>万博体育围绕赛事、训练和日常运动需求，提供结构化的信息聚合与基础支持服务。面向个人运动者及小型团体，降低获取有效资源的门槛。</p>
+      <div class="subnote">从赛事动态到实用指南，覆盖多个运动品类。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">服务特点</h2>
+      <div class="grid-2">
+        <div class="feature-item">
+          <h3>赛事信息整合</h3>
+          <p>围绕主流运动项目整理赛程、对阵及结果，帮助用户快速了解关键节点，减少信息碎片化。</p>
+        </div>
+        <div class="feature-item">
+          <h3>基础训练参考</h3>
+          <p>提供分项训练思路、动作要点与恢复建议，内容经专业资料提炼，适合自主练习参考。</p>
+        </div>
+        <div class="feature-item">
+          <h3>装备与场地指引</h3>
+          <p>汇总常见运动装备选择逻辑与场地使用提示，辅助用户做出更合适的决策。</p>
+        </div>
+        <div class="feature-item">
+          <h3>社区交流入口</h3>
+          <p>为运动爱好者提供观点分享与经验讨论的通道，构建轻度互动环境。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">内容说明</h2>
+      <div class="desc-block">
+        <p>作为一个垂直信息站点，<a href="https://zhweb--wanbosports.com" class="inline-link">万博体育</a> 不以竞技结果预测或投注引导为核心，而是聚焦于运动本身的参与逻辑与信息组织。无论是球类、田径还是户外项目，平台力求用平实语言拆解常见问题，并提供结构化的参考目录。</p>
+        <p>内容来源包括公开赛事数据、运动科学基础文献及资深爱好者实践总结，尽量保持中立与可读性。用户可根据自身水平选取对应板块，无需专业背景即可理解大部分内容。</p>
+        <p>如果你正在寻找一个不那么商业化、更注重运动本身信息价值的站点，这里可能适合你。所有功能免费使用，无需注册即可浏览大部分页面。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">常见问题摘要</h2>
+      <div class="faq-preview">
+        <div class="faq-item">
+          <div class="faq-q">平台主要面向哪些用户？</div>
+          <div class="faq-a">以个人运动爱好者、业余训练者及小型运动团体为主，也适合体育信息初学者。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">内容更新频率如何？</div>
+          <div class="faq-a">赛事信息随赛季更新，训练与装备指南每季度做一次集中修订，保持内容时效性。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">是否需要付费或注册？</div>
+          <div class="faq-a">目前所有内容免费开放，仅社区互动功能需简单注册，无强制付费环节。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">是否有移动端适配？</div>
+          <div class="faq-a">网站采用响应式设计，在手机与平板设备上均可正常浏览，布局自动调整。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <span><a href="https://zhweb--wanbosports.com">万博体育</a></span>
+        <span>关于本站</span>
+        <span>联系方式</span>
+        <span>隐私说明</span>
+      </div>
+      <div class="footer-copy">
+        &copy; 2025 信息页面 · 仅供介绍参考
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
